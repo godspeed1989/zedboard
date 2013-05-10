@@ -1,0 +1,8 @@
+-batch 
+-create led 
+-ver 1.00.a 
+-dir "/home/yl/work/zedboard/xps_led" 
+-lang verilog 
+-bus axi4lite s 
+-reg 1 
+-xps 
