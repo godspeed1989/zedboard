@@ -5,7 +5,7 @@
 //#define USE_DTD
 
 #ifdef USE_DTD
-
+	// from .dtb by platform_get_resource()
 #else
 	#define RS_START   0x7E400000
 	#define RS_END     0x7E40FFFF

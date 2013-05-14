@@ -11,6 +11,9 @@
 
 unsigned long *base_addr;	/* Vitual Base Address */
 struct resource *res;		/* Device Resource Structure */
+#ifndef USE_DTD
+struct resource rs;
+#endif
 unsigned long remap_size;	/* Device Memory Size */
 
 static ssize_t proc_myled_write(struct file *file, const char __user * buf,
@@ -107,6 +110,7 @@ static int __devinit myled_probe(struct platform_device *pdev)
 		return -ENODEV;
 	}
 	#else
+	res = &rs;
 	res->start = RS_START;
 	res->end = RS_END;
 	res->flags = IORESOURCE_MEM;
