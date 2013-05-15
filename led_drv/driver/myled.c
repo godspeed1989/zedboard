@@ -102,6 +102,7 @@ static int __devinit myled_probe(struct platform_device *pdev)
 {
 	struct proc_dir_entry *myled_proc_entry;
 	int ret = 0;
+	printk(KERN_INFO DRIVER_NAME " start probe 0x%p\n", base_addr);
 	// get resource
 	#ifdef USE_DTD
 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
@@ -114,7 +115,7 @@ static int __devinit myled_probe(struct platform_device *pdev)
 	res->start = RS_START;
 	res->end = RS_END;
 	res->flags = IORESOURCE_MEM;
-	res->name = "myled-1.00.a";
+	res->name = DEVICE_NAME;
 	#endif
 	// request memory resource
 	remap_size = res->end - res->start + 1;
@@ -153,7 +154,7 @@ static int __devinit myled_probe(struct platform_device *pdev)
 #ifdef USE_DTD
 /* device match table to match with device node in device tree */
 static const struct of_device_id myled_of_match[] __devinitconst = {
-	{.compatible = "myled-1.00.a"},
+	{.compatible = DEVICE_NAME},
 	{},
 };
 MODULE_DEVICE_TABLE(of, myled_of_match);
