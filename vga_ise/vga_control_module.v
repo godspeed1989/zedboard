@@ -10,7 +10,7 @@ module vga_control_module
 
 reg rectangle;
 always @ (posedge VGA_CLK)
-	if(X > 100 && X < `H_ACT-100 && Y > 100 & Y < `V_ACT-100)
+	if(X > 100 && X < `H_ACT-100 && Y > 100 && Y < `V_ACT-100)
 		rectangle <= 1'b0;
 	else
 		rectangle <= 1'b1;
