@@ -7,13 +7,8 @@
 #include <linux/platform_device.h>
 #include "myled.h"
 
-#define DRIVER_NAME "myled"
-
 unsigned long *base_addr;	/* Vitual Base Address */
 struct resource *res;		/* Device Resource Structure */
-#ifndef USE_DTD
-struct resource rs;
-#endif
 unsigned long remap_size;	/* Device Memory Size */
 
 static ssize_t proc_myled_write(struct file *file, const char __user * buf,
@@ -22,7 +17,8 @@ static ssize_t proc_myled_write(struct file *file, const char __user * buf,
 	char myled_phrase[16];
 	u32 myled_value;
 
-	if (count < 11) {
+	if (count < 11)
+	{
 		if (copy_from_user(myled_phrase, buf, count))
 			return -EFAULT;
 		myled_phrase[count] = '\0';
@@ -30,7 +26,7 @@ static ssize_t proc_myled_write(struct file *file, const char __user * buf,
 	}
 	else
 		myled_value = 0;
-	
+
 	wmb();
 	iowrite32(myled_value, base_addr);
 	return count;
@@ -57,11 +53,14 @@ static int proc_myled_open(struct inode *inode, struct file *file)
 
 	res = single_open(file, proc_myled_show, NULL);
 
-	if (!res) {
+	if (!res)
+	{
 		m = file->private_data;
 		m->buf = buf;
 		m->size = size;
-	} else {
+	}
+	else
+	{
 		kfree(buf);
 	}
 
@@ -69,7 +68,7 @@ static int proc_myled_open(struct inode *inode, struct file *file)
 }
 
 /* File Operations for /proc/myled */
-static const struct file_operations proc_myled_operations = 
+static const struct file_operations proc_myled_operations =
 {
 	.open = proc_myled_open,
 	.write = proc_myled_write,
@@ -95,7 +94,7 @@ static int myled_remove(struct platform_device *pdev)
 	return 0;
 }
 
-/* 
+/*
  * Device Probe function for myled
  */
 static int __devinit myled_probe(struct platform_device *pdev)
@@ -104,28 +103,23 @@ static int __devinit myled_probe(struct platform_device *pdev)
 	int ret = 0;
 	printk(KERN_INFO DRIVER_NAME " start probe 0x%p\n", base_addr);
 	// get resource
-	#ifdef USE_DTD
 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-	if (!res) {
+	if (!res)
+	{
 		dev_err(&pdev->dev, "No memory resource\n");
 		return -ENODEV;
 	}
-	#else
-	res = &rs;
-	res->start = RS_START;
-	res->end = RS_END;
-	res->flags = IORESOURCE_MEM;
-	res->name = DEVICE_NAME;
-	#endif
 	// request memory resource
 	remap_size = res->end - res->start + 1;
-	if (!request_mem_region(res->start, remap_size, pdev->name)) {
+	if (!request_mem_region(res->start, remap_size, pdev->name))
+	{
 		dev_err(&pdev->dev, "Cannot request IO\n");
 		return -ENXIO;
 	}
 	// remap to virtual address
 	base_addr = ioremap(res->start, remap_size);
-	if (base_addr == NULL) {
+	if (base_addr == NULL)
+	{
 		dev_err(&pdev->dev, "Couldn't ioremap memory at 0x%08lx\n",
 			(unsigned long)res->start);
 		ret = -ENOMEM;
@@ -133,7 +127,8 @@ static int __devinit myled_probe(struct platform_device *pdev)
 	}
 	// create procfs entry
 	myled_proc_entry = proc_create(DRIVER_NAME, 0, NULL, &proc_myled_operations);
-	if (myled_proc_entry == NULL) {
+	if (myled_proc_entry == NULL)
+	{
 		dev_err(&pdev->dev, "Couldn't create proc entry\n");
 		ret = -ENOMEM;
 		goto err_create_proc_entry;
@@ -151,14 +146,13 @@ static int __devinit myled_probe(struct platform_device *pdev)
 	return ret;
 }
 
-#ifdef USE_DTD
 /* device match table to match with device node in device tree */
-static const struct of_device_id myled_of_match[] __devinitconst = {
+static const struct of_device_id myled_of_match[] __devinitconst =
+{
 	{.compatible = DEVICE_NAME},
 	{},
 };
 MODULE_DEVICE_TABLE(of, myled_of_match);
-#endif
 
 /* platform driver structure for myled driver */
 static struct platform_driver myled_driver =
@@ -166,9 +160,7 @@ static struct platform_driver myled_driver =
 	.driver = {
 		.name = DRIVER_NAME,
 		.owner = THIS_MODULE,
-		#ifdef USE_DTD
 		.of_match_table = myled_of_match
-		#endif
 	},
 	.probe = myled_probe,
 	.remove = __devexit_p(myled_remove),
