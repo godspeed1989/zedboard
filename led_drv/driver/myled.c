@@ -101,7 +101,7 @@ static int __devinit myled_probe(struct platform_device *pdev)
 {
 	struct proc_dir_entry *myled_proc_entry;
 	int ret = 0;
-	printk(KERN_INFO DRIVER_NAME " start probe 0x%p\n", base_addr);
+	printk(KERN_INFO DRIVER_NAME " start probe\n");
 	// get resource
 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
 	if (!res)
@@ -109,6 +109,7 @@ static int __devinit myled_probe(struct platform_device *pdev)
 		dev_err(&pdev->dev, "No memory resource\n");
 		return -ENODEV;
 	}
+	printk(KERN_INFO DRIVER_NAME " physical addr 0x%x\n", res->start);
 	// request memory resource
 	remap_size = res->end - res->start + 1;
 	if (!request_mem_region(res->start, remap_size, pdev->name))
