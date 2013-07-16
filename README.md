@@ -24,9 +24,14 @@ xilinx-avnet zedboard designs.
 
 	make modules_install INSTALL_MOD_PATH=/home/yl/usb
 
-###xmd connect
+###xmd commands
 
 	connect arm hw
+	fpga -f system.bit
 	dow your-program.elf
 	run
 
+###boot mode config
+
+![boot config][boot]
+[boot]: https://raw.github.com/godspeed1989/zedboard/master/config.png
