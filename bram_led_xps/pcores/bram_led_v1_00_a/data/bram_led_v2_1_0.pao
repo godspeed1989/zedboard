@@ -1,0 +1,10 @@
+##############################################################################
+## Filename:          bram_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Fri May 10 14:17:36 2013 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib proc_common_v3_00_a  all
+lib axi_lite_ipif_v1_01_a  all
+lib bram_led_v1_00_a user_logic verilog
+lib bram_led_v1_00_a bram_led vhdl

@@ -1,0 +1,23 @@
+=====================
+Opened log file
+=====================
+=====================
+Opened log file
+=====================
+Xilinx Platform Studio (XPS)
+Xilinx EDK 14.4 Build EDK_P.49d
+
+Xilinx EDK 14.4 Build EDK_P.49d
+
+WARNING:EDK:4092 - IPNAME: bram_block, INSTANCE: axi_bram_ctrl_0_bram_block -
+   Pre-Production version not verified on hardware for architecture 'zynq' -
+   /tmp/xil_7QuUHK/system_archive/system.mhs line 38 
+WARNING:EDK:4092 - IPNAME: axi_bram_ctrl, INSTANCE: axi_bram_ctrl_0 -
+   Pre-Production version not verified on hardware for architecture 'zynq' -
+   /tmp/xil_7QuUHK/system_archive/system.mhs line 45 
+WARNING:EDK:4092 - IPNAME: axi_interconnect, INSTANCE: axi4lite_0 -
+   Pre-Production version not verified on hardware for architecture 'zynq' -
+   /tmp/xil_7QuUHK/system_archive/system.mhs line 56 
+WARNING:EDK:4092 - IPNAME: processing_system7, INSTANCE: processing_system7_0 -
+   Pre-Production version not verified on hardware for architecture 'zynq' -
+   /tmp/xil_7QuUHK/system_archive/system.mhs line 64 
