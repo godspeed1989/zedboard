@@ -139,9 +139,9 @@ entity bram_led is
     bram_Clk                : out   std_logic;
     bram_En                 : out   std_logic;
     bram_WE                 : out   std_logic_vector (C_S_AXI_DATA_WIDTH/8 - 1 downto 0);
-    BRAM_Addr               : out   std_logic_vector (C_S_AXI_ADDR_WIDTH - 1 downto 0);
-    BRAM_WrData             : out   std_logic_vector (C_S_AXI_DATA_WIDTH - 1 downto 0);   
-    BRAM_RdData             : in    std_logic_vector (C_S_AXI_DATA_WIDTH - 1 downto 0);      
+    bram_Addr               : out   std_logic_vector (C_S_AXI_ADDR_WIDTH - 1 downto 0);
+    bram_WrData             : out   std_logic_vector (C_S_AXI_DATA_WIDTH - 1 downto 0);   
+    bram_RdData             : in    std_logic_vector (C_S_AXI_DATA_WIDTH - 1 downto 0);      
 
     -- ADD USER PORTS ABOVE THIS LINE ------------------
 
