@@ -1,0 +1,15 @@
+##############################################################################
+## Filename:          bram_vga_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+##############################################################################
+
+
+lib bram_vga_v1_00_a user_logic verilog
+lib bram_vga_v1_00_a bram_vga vhdl
+
+lib bram_vga_v1_00_a vga_module verilog
+lib bram_vga_v1_00_a vga_control_module verilog
+lib bram_vga_v1_00_a vga_sync_module verilog
+lib bram_vga_v1_00_a vga_params verilog
+
+

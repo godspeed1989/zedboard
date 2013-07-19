@@ -1,0 +1,8 @@
+-batch 
+-create bram_vga
+-ver 1.00.a 
+-dir "/home/yl/work/zedboard/test" 
+-lang verilog 
+-bus axi4lite s 
+-reg 1 
+-xps 

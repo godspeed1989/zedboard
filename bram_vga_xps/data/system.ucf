@@ -1,0 +1,25 @@
+#
+# pin constraints
+#
+#
+# additional constraints
+#
+
+NET bram_vga_0_vga_VS_pin        LOC = Y19  | IOSTANDARD=LVCMOS33;  # "VGA-VS"
+NET bram_vga_0_vga_HS_pin        LOC = AA19 | IOSTANDARD=LVCMOS33;  # "VGA-HS"
+
+NET bram_vga_0_vga_B_pin[0]      LOC = Y21  | IOSTANDARD=LVCMOS33;  # "VGA-B1"
+NET bram_vga_0_vga_B_pin[1]      LOC = Y20  | IOSTANDARD=LVCMOS33;  # "VGA-B2"
+NET bram_vga_0_vga_B_pin[2]      LOC = AB20 | IOSTANDARD=LVCMOS33;  # "VGA-B3"
+NET bram_vga_0_vga_B_pin[3]      LOC = AB19 | IOSTANDARD=LVCMOS33;  # "VGA-B4"
+
+NET bram_vga_0_vga_G_pin[0]      LOC = AB22 | IOSTANDARD=LVCMOS33;  # "VGA-G1"
+NET bram_vga_0_vga_G_pin[1]      LOC = AA22 | IOSTANDARD=LVCMOS33;  # "VGA-G2"
+NET bram_vga_0_vga_G_pin[2]      LOC = AB21 | IOSTANDARD=LVCMOS33;  # "VGA-G3"
+NET bram_vga_0_vga_G_pin[3]      LOC = AA21 | IOSTANDARD=LVCMOS33;  # "VGA-G4"
+
+NET bram_vga_0_vga_R_pin[0]      LOC = V20  | IOSTANDARD=LVCMOS33;  # "VGA-R1"
+NET bram_vga_0_vga_R_pin[1]      LOC = U20  | IOSTANDARD=LVCMOS33;  # "VGA-R2"
+NET bram_vga_0_vga_R_pin[2]      LOC = V19  | IOSTANDARD=LVCMOS33;  # "VGA-R3"
+NET bram_vga_0_vga_R_pin[3]      LOC = V18  | IOSTANDARD=LVCMOS33;  # "VGA-R4"
+
