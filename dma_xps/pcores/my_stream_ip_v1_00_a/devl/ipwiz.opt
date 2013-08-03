@@ -1,0 +1,10 @@
+-batch 
+-create my_stream_ip 
+-ver 1.00.a 
+-dir /home/yl/work/zedboard/test/ 
+-lang verilog 
+-bus axi4stream ms 
+-xps 
+-totalin 8
+-totalout 8
+-driver 

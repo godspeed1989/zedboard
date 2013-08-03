@@ -1,0 +1,7 @@
+##############################################################################
+## Filename:          /home/yl/work/zedboard/test/pcores/my_stream_ip_v1_00_a/data/my_stream_ip_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Tue Jul 23 11:38:20 2013 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib my_stream_ip_v1_00_a my_stream_ip verilog
