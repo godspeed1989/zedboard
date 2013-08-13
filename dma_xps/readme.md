@@ -1,4 +1,4 @@
-###Dual Port BRAM between PS & PL and VGA show
+###AXI stream IP DMA transportation
 
 *  **step 1** Add `axi_dma` IP core, disable `Scatter Gather`
 ![axi dma][nosg]
